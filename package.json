@@ -3,7 +3,7 @@
   "source": "src/index.html",
   "dist-dir": "docs",
   "scripts": {
-    "start": "parcel --dist-dir=docs",
+    "start": "parcel --dist-dir=docs --public-url ./",
     "build": "parcel build"
   },
   "dependencies": {
