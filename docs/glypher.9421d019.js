@@ -18555,6 +18555,16 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Practice", ()=>Practice);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function speak(word) {
+    console.warn(11);
+    // Create a SpeechSynthesisUtterance
+    const utterance = new SpeechSynthesisUtterance(word);
+    // Select a voice
+    const voices = speechSynthesis.getVoices();
+    utterance.voice = voices[0]; // Choose a specific voice
+    // Speak the text
+    speechSynthesis.speak(utterance);
+}
 function Practice({ data }) {
     const glyph = data[0].split(',')[0];
     const pinyin = data[0].split(',')[1];
@@ -18563,25 +18573,42 @@ function Practice({ data }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "practice",
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    speak(glyph);
+                },
+                children: "Speak"
+            }, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 21,
+                columnNumber: 36
+            }, this),
             glyph,
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: pinyin
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 7,
-                columnNumber: 43
+                lineNumber: 21,
+                columnNumber: 96
             }, this),
             options.map((opt)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: opt.split(',')[1]
                 }, opt, false, {
                     fileName: "src/Practice.js",
-                    lineNumber: 7,
-                    columnNumber: 82
-                }, this))
+                    lineNumber: 21,
+                    columnNumber: 135
+                }, this)),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                children: "Next"
+            }, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 21,
+                columnNumber: 177
+            }, this)
         ]
     }, void 0, true, {
         fileName: "src/Practice.js",
-        lineNumber: 7,
+        lineNumber: 21,
         columnNumber: 10
     }, this);
 }
