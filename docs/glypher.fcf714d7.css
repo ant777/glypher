@@ -1,4 +1,28 @@
 html, body {
+  font-optical-sizing: auto;
   background: #f4f2ef;
+  font-family: Lexend, sans-serif;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.groups {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 344px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.practice {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 344px;
+  margin: 0 auto;
+  padding: 16px 8px;
 }
 /*# sourceMappingURL=glypher.fcf714d7.css.map */

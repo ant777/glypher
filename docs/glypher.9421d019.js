@@ -16101,15 +16101,59 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "App", ()=>App);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _data = require("./data");
+var _group = require("./Group");
+var _practice = require("./Practice");
+var _s = $RefreshSig$();
+function getRandomWordsFromGroup(group) {
+    return group.words.split('\n').sort(()=>Math.random() - 0.5).slice(0, 3);
+}
 function App() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "Hello world!"
+    _s();
+    const [activeGroup, setActiveGroup] = (0, _react.useState)();
+    const [activePractice, setActivePractice] = (0, _react.useState)();
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "groups",
+                    children: (0, _data.groups).map((group)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _group.Group), {
+                            onClick: ()=>{
+                                console.warn(group);
+                                setActivePractice(getRandomWordsFromGroup(group));
+                            },
+                            data: group
+                        }, group.id, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 17,
+                            columnNumber: 30
+                        }, this))
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 16,
+                    columnNumber: 7
+                }, this),
+                activePractice ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _practice.Practice), {
+                    data: activePractice
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 19,
+                    columnNumber: 28
+                }, this) : null
+            ]
+        }, void 0, true, {
+            fileName: "src/App.js",
+            lineNumber: 15,
+            columnNumber: 7
+        }, this)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 2,
+        lineNumber: 14,
         columnNumber: 12
     }, this);
 }
+_s(App, "C3PT0vvnD2MRUFM4xMmvCcluxBg=");
 _c = App;
 var _c;
 $RefreshReg$(_c, "App");
@@ -16119,7 +16163,48 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./data":"5s9fq","./Group":"hnU7T","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Practice":"hsJxf"}],"5s9fq":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "groups", ()=>groups);
+const groups = [
+    {
+        id: 'family',
+        words: "\u7238\u7238,b\xe0 b\xe0,\u043E\u0442\u0435\u0446\n\u5988\u5988,m\u0101 m\u0101,\u043C\u0430\u0442\u044C\n\u54E5\u54E5,g\u0113 ge,\u0441\u0442\u0430\u0440\u0448\u0438\u0439 \u0431\u0440\u0430\u0442\n\u59D0\u59D0,ji\u011B jie,\u0441\u0442\u0430\u0440\u0448\u0430\u044F \u0441\u0435\u0441\u0442\u0440\u0430\n\u5F1F\u5F1F,d\xec di,\u043C\u043B\u0430\u0434\u0448\u0438\u0439 \u0431\u0440\u0430\u0442\n\u59B9\u59B9,m\xe8i mei,\u043C\u043B\u0430\u0434\u0448\u0430\u044F \u0441\u0435\u0441\u0442\u0440\u0430"
+    },
+    {
+        id: 'counting',
+        words: ''
+    },
+    {
+        id: 'greeting',
+        words: ''
+    },
+    {
+        id: 'food',
+        words: ''
+    }
+]; // Основные приветствия и прощания:
+ // 你好 (nǐ hǎo) - привет, 再见 (zài jiàn) - до свидания, 谢谢 (xiè xie) - спасибо, 不客气 (bú kè qì) - пожалуйста (в ответ на спасибо), 对不起 (duì bu qǐ) - извините, 没关系 (méi guān xi) - ничего страшного.
+ // Основные местоимения:
+ // 我 (wǒ) - я, 你 (nǐ) - ты, 他 (tā) - он, 她 (tā) - она, 我们 (wǒ men) - мы, 你们 (nǐ men) - вы, 他们 (tā men) - они.
+ // Основные глаголы:
+ // 是 (shì) - быть, 有 (yǒu) - иметь, 是 (shì) - да, 不是 (bú shì) - нет.
+ // Основные числа:
+ // 一 (yī) - один, 二 (èr) - два, 三 (sān) - три, 四 (sì) - четыре, 五 (wǔ) - пять, 六 (liù) - шесть, 七 (qī) - семь, 八 (bā) - восемь, 九 (jiǔ) - девять, 十 (shí) - десять.
+ // Основные слова для ориентации в пространстве:
+ // 这 (zhè) - этот, 那 (nà) - тот, 里 (lǐ) - внутри, 外 (wài) - снаружи, 上 (shàng) - на, 下 (xià) - под. 
+ // Средний уровень:
+ // Семья:
+ // 爸爸 (bà bà) - отец, 妈妈 (mā mā) - мать, 哥哥 (gē ge) - старший брат, 姐姐 (jiě jie) - старшая сестра, 弟弟 (dì di) - младший брат, 妹妹 (mèi mei) - младшая сестра.
+ // Еда:
+ // 米饭 (mǐ fàn) - рис, 面条 (miàn tiáo) - лапша, 蔬菜 (shū cài) - овощи, 水果 (shuǐ guǒ) - фрукты, 肉 (ròu) - мясо, 水 (shuǐ) - вода, 茶 (chá) - чай.
+ // Работа:
+ // 工作 (gōng zuò) - работа, 公司 (gōng sī) - компания, 老师 (lǎo shī) - учитель, 学生 (xué shēng) - ученик.
+ // Путешествия:
+ // 飞机 (fēi jī) - самолет, 火车 (huǒ chē) - поезд, 汽车 (qì chē) - машина, 旅馆 (lǚ guǎn) - гостиница, 景点 (jǐng diǎn) - достопримечательность. 
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -16149,7 +16234,38 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{}],"hnU7T":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$02ac = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$02ac.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$02ac.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Group", ()=>Group);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function Group({ onClick, data }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: onClick,
+        children: data.id
+    }, void 0, false, {
+        fileName: "src/Group.js",
+        lineNumber: 2,
+        columnNumber: 12
+    }, this);
+}
+_c = Group;
+var _c;
+$RefreshReg$(_c, "Group");
+
+  $parcel$ReactRefreshHelpers$02ac.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -18427,6 +18543,57 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["dXScE","a0t4e"], "a0t4e", "parcelRequire1ba2", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hsJxf":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$d277 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$d277.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$d277.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Practice", ()=>Practice);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+function Practice({ data }) {
+    const glyph = data[0].split(',')[0];
+    const pinyin = data[0].split(',')[1];
+    const eng = data[0].split(',')[2];
+    const options = data.filter((it)=>it.split(',')[0] !== glyph).sort(()=>Math.random() - 0.5).slice(0, 2);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "practice",
+        children: [
+            glyph,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: pinyin
+            }, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 7,
+                columnNumber: 43
+            }, this),
+            options.map((opt)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: opt.split(',')[1]
+                }, opt, false, {
+                    fileName: "src/Practice.js",
+                    lineNumber: 7,
+                    columnNumber: 82
+                }, this))
+        ]
+    }, void 0, true, {
+        fileName: "src/Practice.js",
+        lineNumber: 7,
+        columnNumber: 10
+    }, this);
+}
+_c = Practice;
+var _c;
+$RefreshReg$(_c, "Practice");
+
+  $parcel$ReactRefreshHelpers$d277.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["dXScE","a0t4e"], "a0t4e", "parcelRequire1ba2", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=glypher.9421d019.js.map

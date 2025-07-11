@@ -3,8 +3,8 @@
   "source": "src/index.html",
   "dist-dir": "docs",
   "scripts": {
-    "start": "parcel --dist-dir=docs --public-url ./",
-    "build": "parcel build"
+    "start": "parcel --dist-dir=docs",
+    "build": "parcel build --dist-dir=docs --public-url ./"
   },
   "dependencies": {
     "react": "^19.1.0",
