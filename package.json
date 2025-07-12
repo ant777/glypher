@@ -1,5 +1,5 @@
 {
-  "name": "Glypher",
+  "name": "glypher",
   "source": "src/index.html",
   "dist-dir": "docs",
   "scripts": {
