@@ -84,6 +84,14 @@ html, body {
   padding: 8px 12px;
 }
 
+.practice .option.selected {
+  background: red;
+}
+
+.practice .option.correct {
+  background: green;
+}
+
 .hidden {
   display: none;
 }

@@ -16190,7 +16190,7 @@ function App() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "header${activePractice ? ' hidden' : ''}",
+                        className: `header${activePractice ? ' hidden' : ''}`,
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                                 children: "Glypher"
@@ -16265,7 +16265,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./data":"5s9fq","./Group":"hnU7T","./Practice":"hsJxf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./tools":"euy2j","3f5f6a4b24be53f7":"liSIZ"}],"5s9fq":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./data":"5s9fq","./Group":"hnU7T","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Practice":"hsJxf","./tools":"euy2j","3f5f6a4b24be53f7":"liSIZ"}],"5s9fq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "groups", ()=>groups);
@@ -18703,6 +18703,7 @@ function speak(word) {
 function Practice({ data, mode, reload }) {
     _s();
     const [currentStep, setCurrentStep] = (0, _react.useState)(0);
+    const [selected, setSelected] = (0, _react.useState)();
     const questionWordPos = (0, _react.useMemo)(()=>{
         if (mode === 'mode1') return 0;
         if (mode === 'mode2') return 1;
@@ -18744,7 +18745,23 @@ function Practice({ data, mode, reload }) {
         data,
         mode
     ]);
-    const options = (0, _tools.shuffle)(data.filter((it)=>it.split(',')[questionWordPos] !== question)).slice(0, 2);
+    const wrongOptions = (0, _react.useMemo)(()=>{
+        return (0, _tools.shuffle)(data.filter((it)=>it.split(',')[questionWordPos] !== question)).slice(0, 3);
+    }, [
+        data,
+        questionWordPos,
+        question
+    ]);
+    const options = (0, _react.useMemo)(()=>{
+        return (0, _tools.shuffle)([
+            ...wrongOptions.map((opt)=>opt.split(',')[correctWordPos]),
+            correct
+        ]);
+    }, [
+        wrongOptions,
+        correctWordPos,
+        correct
+    ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "practice",
         children: [
@@ -18755,13 +18772,13 @@ function Practice({ data, mode, reload }) {
                 children: "Speak"
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 71,
+                lineNumber: 77,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 71,
-                columnNumber: 61
+                lineNumber: 77,
+                columnNumber: 63
             }, this),
             currentStep + 1,
             "/",
@@ -18771,56 +18788,61 @@ function Practice({ data, mode, reload }) {
                 children: question
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 73,
+                lineNumber: 79,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "options",
-                children: (0, _tools.shuffle)([
-                    ...options.map((opt)=>opt.split(',')[correctWordPos]),
-                    correct
-                ]).map((opt, ind)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "option",
+                children: options.map((opt, ind)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        onClick: ()=>{
+                            if (selected) return;
+                            setSelected(opt);
+                        },
+                        className: `option${correct === opt && selected ? ' correct' : ''}${selected === opt ? ' selected' : ''}`,
                         children: opt
                     }, ind, false, {
                         fileName: "src/Practice.js",
-                        lineNumber: 75,
-                        columnNumber: 99
+                        lineNumber: 81,
+                        columnNumber: 34
                     }, this))
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 74,
+                lineNumber: 80,
                 columnNumber: 5
             }, this),
             currentStep < data.length - 1 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
                     if (currentStep >= data.length - 1) return;
+                    setSelected(null);
                     setCurrentStep(currentStep + 1);
                 },
+                disabled: !selected,
                 children: "Next"
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 77,
-                columnNumber: 37
+                lineNumber: 87,
+                columnNumber: 38
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
                     setCurrentStep(0);
+                    setSelected(null);
                     reload();
                 },
+                disabled: !selected,
                 children: "Another round"
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 79,
-                columnNumber: 55
+                lineNumber: 92,
+                columnNumber: 44
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/Practice.js",
-        lineNumber: 70,
+        lineNumber: 76,
         columnNumber: 10
     }, this);
 }
-_s(Practice, "NWhtZgdp71NxFLCYH5mqr0hjzMI=");
+_s(Practice, "ObBxNSc7kbUaviAWQvFf4Cixxxw=");
 _c = Practice;
 var _c;
 $RefreshReg$(_c, "Practice");
@@ -18830,7 +18852,7 @@ $RefreshReg$(_c, "Practice");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./tools":"euy2j","react":"jMk1U"}],"euy2j":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","./tools":"euy2j"}],"euy2j":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "shuffle", ()=>shuffle);

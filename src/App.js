@@ -56,7 +56,7 @@ const [selectedMode, setSelectedMode] = useState(modes[1].id); // Default select
           }}
           checked={selectedMode === mode.id} name="mode"/><label htmlFor={mode.id}>{mode.label}</label></div>)}
         </div>
-        <div className="header${activePractice ? ' hidden' : ''}">
+        <div className={`header${activePractice ? ' hidden' : ''}`}>
           <h1>Glypher</h1>
           <img src={logo} alt=""/>
         </div>

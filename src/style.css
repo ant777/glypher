@@ -73,6 +73,12 @@ body {
   margin: 0 8px;
   cursor: pointer;
 }
+.practice .option.selected {
+  background: red;
+}
+.practice .option.correct {
+  background: green;
+}
 .hidden {
   display: none;
 }
