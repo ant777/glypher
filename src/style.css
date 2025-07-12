@@ -16,10 +16,58 @@ body {
   max-width: 344px;
   margin: 0 auto;
 }
+.lhs-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  left: 0;
+  z-index: 5;
+}
+.group {
+  display: flex;
+  padding: 8px;
+  cursor: pointer;
+}
+.group .hanzi {
+  margin-right: 12px;
+  flex: 0 0 56px;
+  height: 56px;
+  line-height: 56px;
+  text-align: center;
+  background: #EBEAE6;
+}
+.mode-selector {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .practice {
   background: #fff;
   border-radius: 12px;
   padding: 16px 8px;
   max-width: 344px;
   margin: 0 auto;
+}
+.practice .preview {
+  text-align: center;
+}
+.mode1 .practice .preview,
+.mode3 .practice .preview {
+  font-size: 5em;
+}
+.practice .options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.practice .option {
+  padding: 8px 12px;
+  border-radius: 22px;
+  background: #EBEAE6;
+  margin: 0 8px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
 }

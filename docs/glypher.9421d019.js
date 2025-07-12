@@ -130,7 +130,7 @@
 
   // Only insert newRequire.load when it is actually used.
   // The code in this file is linted against ES5, so dynamic import is not allowed.
-  // INSERT_LOAD_HERE
+  function $parcel$resolve(url) {  url = importMap[url] || url;  return import.meta.resolve(distDir + url);}newRequire.resolve = $parcel$resolve;
 
   Object.defineProperty(newRequire, 'root', {
     get: function () {
@@ -16105,55 +16105,157 @@ var _react = require("react");
 var _data = require("./data");
 var _group = require("./Group");
 var _practice = require("./Practice");
+var _tools = require("./tools");
 var _s = $RefreshSig$();
+const logo = new URL(require("3f5f6a4b24be53f7"));
 function getRandomWordsFromGroup(group) {
-    return group.words.split('\n').sort(()=>Math.random() - 0.5).slice(0, 3);
+    return (0, _tools.shuffle)(group.words.split('\n')).slice(0, 5);
 }
 function App() {
     _s();
     const [activeGroup, setActiveGroup] = (0, _react.useState)();
+    const [lastGroup, setLastGroup] = (0, _react.useState)();
     const [activePractice, setActivePractice] = (0, _react.useState)();
+    const modes = [
+        {
+            id: 'mode0',
+            label: 'Explore'
+        },
+        {
+            id: 'mode1',
+            label: 'Hanzi ->> pinyin'
+        },
+        {
+            id: 'mode2',
+            label: 'Pinyin -> hanzi'
+        },
+        {
+            id: 'mode3',
+            label: 'Hanzi understanding'
+        },
+        {
+            id: 'mode4',
+            label: 'Pinyin understanding'
+        },
+        {
+            id: 'mode5',
+            label: 'Translate to hanzi'
+        },
+        {
+            id: 'mode6',
+            label: 'Translate to pinyin'
+        }
+    ];
+    const [selectedMode, setSelectedMode] = (0, _react.useState)(modes[1].id); // Default selected
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "groups",
-                    children: (0, _data.groups).map((group)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _group.Group), {
-                            onClick: ()=>{
-                                console.warn(group);
-                                setActivePractice(getRandomWordsFromGroup(group));
-                            },
-                            data: group
-                        }, group.id, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 17,
-                            columnNumber: 30
-                        }, this))
-                }, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 16,
-                    columnNumber: 7
-                }, this),
-                activePractice ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _practice.Practice), {
-                    data: activePractice
-                }, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 19,
-                    columnNumber: 28
-                }, this) : null
-            ]
-        }, void 0, true, {
-            fileName: "src/App.js",
-            lineNumber: 15,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        className: selectedMode,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mode-selector",
+                        children: modes.map((mode)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "radio",
+                                        id: mode.id,
+                                        value: mode.id,
+                                        onChange: ()=>{
+                                            setSelectedMode(mode.id);
+                                        },
+                                        checked: selectedMode === mode.id,
+                                        name: "mode"
+                                    }, void 0, false, {
+                                        fileName: "src/App.js",
+                                        lineNumber: 52,
+                                        columnNumber: 49
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                        htmlFor: mode.id,
+                                        children: mode.label
+                                    }, void 0, false, {
+                                        fileName: "src/App.js",
+                                        lineNumber: 57,
+                                        columnNumber: 59
+                                    }, this)
+                                ]
+                            }, mode.id, true, {
+                                fileName: "src/App.js",
+                                lineNumber: 52,
+                                columnNumber: 30
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 51,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "header${activePractice ? ' hidden' : ''}",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                children: "Glypher"
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 60,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: logo,
+                                alt: ""
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 61,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/App.js",
+                        lineNumber: 59,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: `groups${activePractice ? ' lhs-sidebar' : ''}`,
+                        children: (0, _data.groups).map((group)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _group.Group), {
+                                onClick: ()=>{
+                                    setLastGroup(group);
+                                    setActivePractice(getRandomWordsFromGroup(group));
+                                },
+                                data: group
+                            }, group.id, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 64,
+                                columnNumber: 30
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 63,
+                        columnNumber: 7
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/App.js",
+                lineNumber: 50,
+                columnNumber: 7
+            }, this),
+            activePractice ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _practice.Practice), {
+                data: activePractice,
+                mode: selectedMode,
+                reload: ()=>{
+                    setActivePractice(getRandomWordsFromGroup(lastGroup));
+                }
+            }, void 0, false, {
+                fileName: "src/App.js",
+                lineNumber: 68,
+                columnNumber: 28
+            }, this) : null
+        ]
+    }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 14,
+        lineNumber: 49,
         columnNumber: 12
     }, this);
 }
-_s(App, "C3PT0vvnD2MRUFM4xMmvCcluxBg=");
+_s(App, "UzHeAQc3AZzPhMPgwQE1anfG8Qc=");
 _c = App;
 var _c;
 $RefreshReg$(_c, "App");
@@ -16163,26 +16265,30 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./data":"5s9fq","./Group":"hnU7T","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Practice":"hsJxf"}],"5s9fq":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./data":"5s9fq","./Group":"hnU7T","./Practice":"hsJxf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./tools":"euy2j","3f5f6a4b24be53f7":"liSIZ"}],"5s9fq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "groups", ()=>groups);
 const groups = [
     {
         id: 'family',
+        glyph: "\u5BB6",
         words: "\u7238\u7238,b\xe0 b\xe0,\u043E\u0442\u0435\u0446\n\u5988\u5988,m\u0101 m\u0101,\u043C\u0430\u0442\u044C\n\u54E5\u54E5,g\u0113 ge,\u0441\u0442\u0430\u0440\u0448\u0438\u0439 \u0431\u0440\u0430\u0442\n\u59D0\u59D0,ji\u011B jie,\u0441\u0442\u0430\u0440\u0448\u0430\u044F \u0441\u0435\u0441\u0442\u0440\u0430\n\u5F1F\u5F1F,d\xec di,\u043C\u043B\u0430\u0434\u0448\u0438\u0439 \u0431\u0440\u0430\u0442\n\u59B9\u59B9,m\xe8i mei,\u043C\u043B\u0430\u0434\u0448\u0430\u044F \u0441\u0435\u0441\u0442\u0440\u0430"
     },
     {
         id: 'counting',
-        words: ''
+        glyph: "\u6570",
+        words: "\u4E00,y\u012B,1\n\u4E8C,\xe8r,2\n\u4E09,s\u0101n,3\n\u56DB,s\xec,4\n\u4E94,w\u01D4,5\n\u516D,li\xf9,6\n\u4E03,q\u012B,7\n\u516B,b\u0101,8\n\u4E5D,ji\u01D4,9\n\u5341,sh\xed,10"
     },
     {
         id: 'greeting',
-        words: ''
+        glyph: "\u95EE\u5019",
+        words: "\u4F60\u597D,n\u01D0 h\u01CEo,\u043F\u0440\u0438\u0432\u0435\u0442\n\u518D\u89C1,z\xe0i ji\xe0n,\u0434\u043E \u0441\u0432\u0438\u0434\u0430\u043D\u0438\u044F\n\u8C22\u8C22,xi\xe8 xie,\u0441\u043F\u0430\u0441\u0438\u0431\u043E\n\u4E0D\u5BA2\u6C14,b\xfa k\xe8 q\xec,\u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430\n\u5BF9\u4E0D\u8D77,du\xec bu q\u01D0,\u0438\u0437\u0432\u0438\u043D\u0438\u0442\u0435\n\u6CA1\u5173\u7CFB,m\xe9i gu\u0101n xi,\u043D\u0438\u0447\u0435\u0433\u043E \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u0433\u043E"
     },
     {
         id: 'food',
-        words: ''
+        glyph: "\u98DF\u7269",
+        words: "\u7C73\u996D,m\u01D0 f\xe0n,\u0440\u0438\u0441\n\u9762\u6761,mi\xe0n ti\xe1o,\u043B\u0430\u043F\u0448\u0430\n\u852C\u83DC,sh\u016B c\xe0i,\u043E\u0432\u043E\u0449\u0438\n\u6C34\u679C,shu\u01D0 gu\u01D2,\u0444\u0440\u0443\u043A\u0442\u044B\n\u8089,r\xf2u,\u043C\u044F\u0441\u043E\n\u6C34,shu\u01D0,\u0432\u043E\u0434\u0430\n\u8336,ch\xe1,\u0447\u0430\u0439"
     }
 ]; // Основные приветствия и прощания:
  // 你好 (nǐ hǎo) - привет, 再见 (zài jiàn) - до свидания, 谢谢 (xiè xie) - спасибо, 不客气 (bú kè qì) - пожалуйста (в ответ на спасибо), 对不起 (duì bu qǐ) - извините, 没关系 (méi guān xi) - ничего страшного.
@@ -16248,9 +16354,35 @@ parcelHelpers.export(exports, "Group", ()=>Group);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 function Group({ onClick, data }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "group",
         onClick: onClick,
-        children: data.id
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "hanzi",
+                children: data.glyph
+            }, void 0, false, {
+                fileName: "src/Group.js",
+                lineNumber: 3,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    data.id,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Group.js",
+                        lineNumber: 3,
+                        columnNumber: 62
+                    }, this),
+                    data.words.split('\n').length,
+                    " words"
+                ]
+            }, void 0, true, {
+                fileName: "src/Group.js",
+                lineNumber: 3,
+                columnNumber: 48
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/Group.js",
         lineNumber: 2,
         columnNumber: 12
@@ -18555,8 +18687,10 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Practice", ()=>Practice);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _tools = require("./tools");
+var _s = $RefreshSig$();
 function speak(word) {
-    console.warn(11);
     // Create a SpeechSynthesisUtterance
     const utterance = new SpeechSynthesisUtterance(word);
     // Select a voice
@@ -18565,53 +18699,127 @@ function speak(word) {
     // Speak the text
     speechSynthesis.speak(utterance);
 }
-function Practice({ data }) {
-    const glyph = data[0].split(',')[0];
-    const pinyin = data[0].split(',')[1];
-    const eng = data[0].split(',')[2];
-    const options = data.filter((it)=>it.split(',')[0] !== glyph).sort(()=>Math.random() - 0.5).slice(0, 2);
+function Practice({ data, mode, reload }) {
+    _s();
+    const [currentStep, setCurrentStep] = (0, _react.useState)(0);
+    const questionWordPos = (0, _react.useMemo)(()=>{
+        if (mode === 'mode1') return 0;
+        if (mode === 'mode2') return 1;
+        if (mode === 'mode3') return 0;
+        if (mode === 'mode4') return 1;
+        if (mode === 'mode5') return 2;
+        if (mode === 'mode6') return 2;
+    }, [
+        mode
+    ]);
+    const correctWordPos = (0, _react.useMemo)(()=>{
+        if (mode === 'mode1') return 1;
+        if (mode === 'mode2') return 0;
+        if (mode === 'mode3') return 2;
+        if (mode === 'mode4') return 2;
+        if (mode === 'mode5') return 0;
+        if (mode === 'mode6') return 1;
+    }, [
+        mode
+    ]);
+    const question = (0, _react.useMemo)(()=>{
+        return data[currentStep].split(',')[questionWordPos];
+    }, [
+        currentStep,
+        data,
+        mode
+    ]);
+    const correct = (0, _react.useMemo)(()=>{
+        return data[currentStep].split(',')[correctWordPos];
+    }, [
+        currentStep,
+        data,
+        mode
+    ]);
+    const hint = (0, _react.useMemo)(()=>{
+        return data[currentStep].split(',')[2];
+    }, [
+        currentStep,
+        data,
+        mode
+    ]);
+    const options = (0, _tools.shuffle)(data.filter((it)=>it.split(',')[questionWordPos] !== question)).slice(0, 2);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "practice",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
-                    speak(glyph);
+                    speak(question);
                 },
                 children: "Speak"
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 21,
-                columnNumber: 36
+                lineNumber: 71,
+                columnNumber: 5
             }, this),
-            glyph,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 71,
+                columnNumber: 61
+            }, this),
+            currentStep + 1,
+            "/",
+            data.length,
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: pinyin
+                className: "preview",
+                children: question
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 21,
-                columnNumber: 96
+                lineNumber: 73,
+                columnNumber: 5
             }, this),
-            options.map((opt)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: opt.split(',')[1]
-                }, opt, false, {
-                    fileName: "src/Practice.js",
-                    lineNumber: 21,
-                    columnNumber: 135
-                }, this)),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "options",
+                children: (0, _tools.shuffle)([
+                    ...options.map((opt)=>opt.split(',')[correctWordPos]),
+                    correct
+                ]).map((opt, ind)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "option",
+                        children: opt
+                    }, ind, false, {
+                        fileName: "src/Practice.js",
+                        lineNumber: 75,
+                        columnNumber: 99
+                    }, this))
+            }, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 74,
+                columnNumber: 5
+            }, this),
+            currentStep < data.length - 1 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    if (currentStep >= data.length - 1) return;
+                    setCurrentStep(currentStep + 1);
+                },
                 children: "Next"
             }, void 0, false, {
                 fileName: "src/Practice.js",
-                lineNumber: 21,
-                columnNumber: 177
+                lineNumber: 77,
+                columnNumber: 37
+            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    setCurrentStep(0);
+                    reload();
+                },
+                children: "Another round"
+            }, void 0, false, {
+                fileName: "src/Practice.js",
+                lineNumber: 79,
+                columnNumber: 55
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/Practice.js",
-        lineNumber: 21,
+        lineNumber: 70,
         columnNumber: 10
     }, this);
 }
+_s(Practice, "NWhtZgdp71NxFLCYH5mqr0hjzMI=");
 _c = Practice;
 var _c;
 $RefreshReg$(_c, "Practice");
@@ -18621,6 +18829,17 @@ $RefreshReg$(_c, "Practice");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["dXScE","a0t4e"], "a0t4e", "parcelRequire1ba2", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./tools":"euy2j","react":"jMk1U"}],"euy2j":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "shuffle", ()=>shuffle);
+function shuffle(arr) {
+    return arr.sort(()=>Math.random() - 0.5);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"liSIZ":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("img.c4a2b166.svg") + "?" + Date.now();
+
+},{}]},["dXScE","a0t4e"], "a0t4e", "parcelRequire1ba2", {}, "./", "/", "http://localhost:1234")
 
 //# sourceMappingURL=glypher.9421d019.js.map

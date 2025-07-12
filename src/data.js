@@ -1,21 +1,23 @@
 export const groups = [
     {
         id: 'family',
-        words: 
-            '爸爸,bà bà,отец\n妈妈,mā mā,мать\n哥哥,gē ge,старший брат\n姐姐,jiě jie,старшая сестра\n弟弟,dì di,младший брат\n妹妹,mèi mei,младшая сестра'
-        
+        glyph: '家',
+        words: '爸爸,bà bà,отец\n妈妈,mā mā,мать\n哥哥,gē ge,старший брат\n姐姐,jiě jie,старшая сестра\n弟弟,dì di,младший брат\n妹妹,mèi mei,младшая сестра'
     },
     {
         id: 'counting',
-        words: ''
+        glyph: '数',
+        words: '一,yī,1\n二,èr,2\n三,sān,3\n四,sì,4\n五,wǔ,5\n六,liù,6\n七,qī,7\n八,bā,8\n九,jiǔ,9\n十,shí,10'
     },
     {
         id: 'greeting',
-        words: ''
+        glyph: '问候',
+        words: '你好,nǐ hǎo,привет\n再见,zài jiàn,до свидания\n谢谢,xiè xie,спасибо\n不客气,bú kè qì,пожалуйста\n对不起,duì bu qǐ,извините\n没关系,méi guān xi,ничего страшного'
     },
     {
         id: 'food',
-        words: ''
+        glyph: '食物',
+        words: '米饭,mǐ fàn,рис\n面条,miàn tiáo,лапша\n蔬菜,shū cài,овощи\n水果,shuǐ guǒ,фрукты\n肉,ròu,мясо\n水,shuǐ,вода\n茶,chá,чай'
     }
 ];
 

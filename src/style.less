@@ -17,6 +17,34 @@ html, body {
     padding: 8px;
     max-width: 344px;
     margin: 0 auto;
+    // background: url(./assets/img.svg);
+}
+.lhs-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 200px; 
+    left: 0;
+    z-index: 5;
+}
+.group{
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    .hanzi {
+        margin-right: 12px;
+        flex: 0 0 56px;
+        height: 56px;
+        line-height: 56px;
+        text-align: center;
+        background: #EBEAE6;
+    }
+}
+
+.mode-selector {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .practice {
@@ -25,4 +53,27 @@ html, body {
     padding: 16px 8px;
     max-width: 344px;
     margin: 0 auto;
+
+    .preview {
+        .mode1 &, .mode3 & {
+            font-size: 5em; 
+        }
+        text-align: center;
+    }
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .option {
+        padding: 8px 12px;
+        border-radius: 22px;
+        background: #EBEAE6;
+        margin: 0 8px;
+        cursor: pointer;
+    }
+}
+
+.hidden{
+    display: none;
 }
