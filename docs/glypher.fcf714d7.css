@@ -1,78 +1,90 @@
-html,
-body {
-  background: #F4F2EF;
-  font-family: "Lexend", sans-serif;
+html, body {
   font-optical-sizing: auto;
+  background: #f4f2ef;
+  font-family: Lexend, sans-serif;
   font-style: normal;
 }
+
 * {
   margin: 0;
   padding: 0;
 }
+
 .groups {
   background: #fff;
   border-radius: 12px;
-  padding: 8px;
   max-width: 344px;
   margin: 0 auto;
+  padding: 8px;
 }
+
 .lhs-sidebar {
+  z-index: 5;
+  width: 200px;
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 200px;
   left: 0;
-  z-index: 5;
 }
-@media (max-width: 700px) {
+
+@media (width <= 700px) {
   .lhs-sidebar {
     display: none;
   }
 }
+
 .group {
-  display: flex;
-  padding: 8px;
   cursor: pointer;
+  padding: 8px;
+  display: flex;
 }
+
 .group .hanzi {
-  margin-right: 12px;
+  text-align: center;
+  background: #ebeae6;
   flex: 0 0 56px;
   height: 56px;
+  margin-right: 12px;
   line-height: 56px;
-  text-align: center;
-  background: #EBEAE6;
 }
+
 .mode-selector {
   position: absolute;
   top: 0;
   right: 0;
 }
+
 .practice {
   background: #fff;
   border-radius: 12px;
-  padding: 16px 8px;
   max-width: 344px;
   margin: 0 auto;
+  padding: 16px 8px;
 }
+
 .practice .preview {
   text-align: center;
 }
-.mode1 .practice .preview,
-.mode3 .practice .preview {
+
+.mode1 .practice .preview, .mode3 .practice .preview {
   font-size: 5em;
 }
+
 .practice .options {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  display: flex;
 }
+
 .practice .option {
-  padding: 8px 12px;
-  border-radius: 22px;
-  background: #EBEAE6;
-  margin: 0 8px;
   cursor: pointer;
+  background: #ebeae6;
+  border-radius: 22px;
+  margin: 0 8px;
+  padding: 8px 12px;
 }
+
 .hidden {
   display: none;
 }
+/*# sourceMappingURL=glypher.fcf714d7.css.map */
