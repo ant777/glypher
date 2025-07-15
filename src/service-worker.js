@@ -36,12 +36,10 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
     if (event.request.method !== 'GET') return;
     const url = new URL(event.request.url);
-    console.warn(event.request.url)
      event.respondWith(
             caches.match(event.request, {ignoreSearch: true})
                 .then(function (response) {
                         // Cache hit - return response
-                        console.warn(response)
                         if (response) {
                             return response;
                         }
