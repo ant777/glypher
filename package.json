@@ -1,0 +1,16 @@
+{
+  "name": "glypher",
+  "source": "src/index.html",
+  "dist-dir": "docs",
+  "scripts": {
+    "start": "rm -rf docs & set NODE_ENV=dev & parcel --dist-dir=docs",
+    "build": "rm -rf docs & set NODE_ENV=prod & parcel build --dist-dir=docs --public-url=/glypher & bash ./sw.sh"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}

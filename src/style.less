@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Lexend';
+    src: url(./Lexend-VariableFont_wght.ttf);
+}
+
+html,
+body {
+    background: #F4F2EF;
+
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+#app,
+#app>div {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.groups {
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px;
+    max-width: 344px;
+    margin: 0 auto;
+    overflow: auto;
+
+    .sidebar-link {
+        display: none;
+    }
+
+    // background: url(./assets/img.svg);
+}
+
+.lhs-sidebar {
+    position: fixed;
+    top: 12px;
+    bottom: 12px;
+    width: 200px;
+    left: 12px;
+    z-index: 5;
+    display: none;
+    box-shadow: 0px 1px 2px 0px #0000001F;
+
+    &.visible {
+        display: block;
+    }
+
+    .sidebar-link {
+        display: block;
+    }
+
+}
+
+.rhs-sidebar {
+    position: fixed;
+    top: 12px;
+    bottom: 12px;
+    width: 200px;
+    right: 12px;
+    z-index: 5;
+    display: none;
+    box-shadow: 0px 1px 2px 0px #0000001F;
+
+    .sidebar-link {
+        display: block;
+    }
+
+    &.visible {
+        display: block;
+
+    }
+}
+
+.group {
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+
+    .hanzi {
+        margin-right: 12px;
+        flex: 0 0 56px;
+        height: 56px;
+        line-height: 56px;
+        text-align: center;
+        background: #EBEAE6;
+    }
+}
+
+.mode-selector {
+    // position: absolute;
+    // top: 0;
+    // right: 200px;
+    border-bottom: 1px solid black;
+    // width: 200px;
+}
+
+.order-selector {
+    // position: absolute;
+    // top: 0;
+    // width: 100px;
+    border-bottom: 1px solid black;
+    // right: 400px;
+}
+
+.practice-selector {
+    // position: absolute;
+    // top: 0;
+    // width: 100px;
+    // right: 500px;
+    border-bottom: 1px solid black;
+}
+
+.batch-selector {
+    position: absolute;
+    top: 0;
+    right: 200px;
+}
+
+.practice {
+    height: calc(100vh - 72px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .proceed {
+        width: 100%;
+        border: none;
+        background: #15141A;
+        color: #fff;
+        font-size: 16px;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 8px;
+
+        &:disabled {
+            opacity: .3;
+        }
+    }
+
+    .unit {
+        position: relative;
+        background: #fff;
+        padding: 16px;
+        border-radius: 12px;
+        max-width: 344px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.5em;
+        box-sizing: border-box;
+
+    }
+
+    .preview {
+
+        font-size: 3em;
+
+        &.bigger {
+            font-size: 5em;
+        }
+
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .option {
+        padding: 8px 12px;
+        border-radius: 22px;
+        background: #EBEAE6;
+        margin: 0 8px;
+        cursor: pointer;
+
+        &.selected {
+            background: red;
+        }
+
+        &.correct {
+            background: green;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+nav {
+    display: flex;
+    padding: 12px;
+
+    &>div {
+        flex-grow: 0;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+        height: 48px;
+        line-height: 48px;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+}
+
+.home-link {
+    background: #fff url(./assets/home.svg) center center no-repeat;
+    width: 48px;
+    margin-right: 4px;
+}
+
+.groups-trigger,
+.words-trigger {
+    background: #fff url(./assets/sidebar.svg) right 16px center no-repeat;
+    padding: 0 48px 0 18px;
+}
+
+.words-trigger {
+    margin-left: auto;
+}
+
+.sidebar-link {
+
+    background: #fff url(./assets/sidebar.svg) center center no-repeat;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+
+}
+
+.speak {
+
+    position: absolute;
+    right: 16px;
+    background: #EBEAE6 url(./assets/speaker.svg) center center no-repeat;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    border: none;
+    border-radius: 22px;
+
+
+}
