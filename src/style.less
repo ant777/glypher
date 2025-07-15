@@ -168,8 +168,24 @@ main {
 
         font-size: 3em;
 
+        #hanzi1,
+        #hanzi2,
+        #hanzi3 {
+            display: none;
+        }
+
         &.bigger {
             font-size: 5em;
+
+            #hanzi1,
+            #hanzi2,
+            #hanzi3 {
+                display: block;
+            }
+
+            span {
+                display: none;
+            }
         }
 
         text-align: center;

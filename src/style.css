@@ -127,8 +127,21 @@ main {
   font-size: 3em;
   text-align: center;
 }
+.practice .preview #hanzi1,
+.practice .preview #hanzi2,
+.practice .preview #hanzi3 {
+  display: none;
+}
 .practice .preview.bigger {
   font-size: 5em;
+}
+.practice .preview.bigger #hanzi1,
+.practice .preview.bigger #hanzi2,
+.practice .preview.bigger #hanzi3 {
+  display: block;
+}
+.practice .preview.bigger span {
+  display: none;
 }
 .practice .options {
   display: flex;

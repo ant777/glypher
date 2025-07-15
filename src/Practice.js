@@ -1,6 +1,7 @@
 import { useContext, useMemo, useState } from "react";
 import { containsChinese, shuffle, useGlobalKeyDown } from "./tools";
 import { DataContext } from "./DataContext";
+import { PracticePreview } from "./PracticePreview";
 
 function speak(word) {
   // Create a SpeechSynthesisUtterance
@@ -116,7 +117,7 @@ export function Practice({ data, reload }) {
 
     <button onClick={() => { speak(question) }} className="speak" tabIndex={-1}></button><br />
     {currentStep + 1}/{data.length}
-    <div className={`preview${containsChinese(question) ? ' bigger' : ''}`}>{question}</div>
+    <PracticePreview text={question}/>
     {isStudy ? <div>{correct}<br />{hint}</div> : <div className="options">
       {options.map((opt, ind) => <div key={ind}
         onClick={() => {
