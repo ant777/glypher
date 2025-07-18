@@ -107,6 +107,7 @@ main {
   height: 48px;
   line-height: 48px;
   border-radius: 8px;
+  margin-top: 16px;
 }
 .practice .proceed:disabled {
   opacity: 0.3;
@@ -123,8 +124,20 @@ main {
   font-size: 1.5em;
   box-sizing: border-box;
 }
+.practice .pinyin-preview {
+  font-size: 32px;
+  margin-top: 32px;
+}
+.practice .translation {
+  margin-top: 8px;
+  font-size: 20px;
+}
 .practice .preview {
   font-size: 3em;
+  height: 224px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 .practice .preview #hanzi1,
@@ -152,7 +165,8 @@ main {
   padding: 8px 12px;
   border-radius: 22px;
   background: #EBEAE6;
-  margin: 0 8px;
+  margin: 0 4px 8px;
+  font-size: 16px;
   cursor: pointer;
 }
 .practice .option.selected {
@@ -163,6 +177,10 @@ main {
 }
 .hidden {
   display: none;
+}
+.header {
+  text-align: center;
+  padding-bottom: 64px;
 }
 nav {
   display: flex;

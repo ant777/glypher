@@ -118,7 +118,7 @@ export function Practice({ data, reload }) {
     <button onClick={() => { speak(question) }} className="speak" tabIndex={-1}></button><br />
     {currentStep + 1}/{data.length}
     <PracticePreview text={question}/>
-    {isStudy ? <div>{correct}<br />{hint}</div> : <div className="options">
+    {isStudy ? <div><div className="pinyin-preview">{correct}</div><div className="translation">{hint}</div></div> : <div className="options">
       {options.map((opt, ind) => <div key={ind}
         onClick={() => {
           if (selected) return;

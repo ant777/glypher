@@ -16,7 +16,6 @@ function getRandomWordsFromGroup(group){
 function getQueueWordsFromGroup(group, lastIndex = 0){
 
   let res = getWordsArray(group).slice(lastIndex, lastIndex + 5);
-  console.warn(res, getWordsArray(group).slice(lastIndex, lastIndex+5));
   if (res.length < 5) {
     res = res.concat(getWordsArray(group).slice(0, 5 - res.length));
   }
@@ -113,8 +112,8 @@ const loadGroup = useCallback((group) => {
           }
       <div>
         <div className={`header${activePractice ? ' hidden' : ''}`}>
-          <h1>Glypher</h1>
           <img src={logo} alt=""/>
+          <h1>Glypher</h1>
         </div>
       <div className={`groups${activePractice ? ' lhs-sidebar' : ''}${lhsVisible ? ' visible' : ''}`}>
         <div className="sidebar-link" onClick={() => {
