@@ -1,7 +1,7 @@
 var e=globalThis,t={},n={},r=e.parcelRequirebdb8;null==r&&((r=function(e){if(e in t)return t[e].exports;if(e in n){var r=n[e];delete n[e];var i={id:e,exports:{}};return t[e]=i,r.call(i.exports,i,i.exports),i.exports}var a=Error("Cannot find module '"+e+"'");throw a.code="MODULE_NOT_FOUND",a}).register=function(e,t){n[e]=t},e.parcelRequirebdb8=r),(0,r.register)("4pGFC",function(e,t){let n="glypher-cache-81";var r=[
-'/glypher/',"/glypher/glypher.b4db7529.js",
-"/glypher/glypher.e108488e.js",
-"/glypher/glypher.f8e55f57.css",
+'/glypher/',"/glypher/glypher.5ea7d4ac.js",
+"/glypher/glypher.98d983bc.css",
+"/glypher/glypher.b4db7529.js",
 "/glypher/home.1e18d523.svg",
 "/glypher/img.0dc0e39a.svg",
 "/glypher/index.html",

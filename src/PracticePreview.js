@@ -20,5 +20,5 @@ export function PracticePreview({text}) {
   //     })
   //   }
   // }, [text])
-    return <div className={`preview${containsChinese(text) ? ' bigger' : ''}`}><div id="hanzi">{text}</div></div>;
+    return <div className={`preview${containsChinese(text) ? ' bigger' : ''}${text.length > 5 ? ' smaller' : ''}`}><div id="hanzi">{text}</div></div>;
 }

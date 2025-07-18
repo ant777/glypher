@@ -106,7 +106,10 @@ export function Practice({ data, reload }) {
   }, [currentStep, data, mode, correctWordPos]);
   const hint = useMemo(() => {
     return data[currentStep].split(',')[2]
-  }, [currentStep, data, mode]);
+  }, [currentStep, data]);
+  const hanzi = useMemo(() => {
+    return data[currentStep].split(',')[0]
+  }, [currentStep, data]);
 
   const wrongOptions = useMemo(() => {
     return shuffle(data.filter(it => it.split(',')[questionWordPos] !== question)).slice(0, 3);
@@ -115,7 +118,7 @@ export function Practice({ data, reload }) {
 
   return <div className="practice"><div className="unit">
 
-    <button onClick={() => { speak(question) }} className="speak" tabIndex={-1}></button><br />
+    <button onClick={() => { speak(hanzi) }} className="speak" tabIndex={-1}></button><br />
     {currentStep + 1}/{data.length}
     <PracticePreview text={question}/>
     {isStudy ? <div><div className="pinyin-preview">{correct}</div><div className="translation">{hint}</div></div> : <div className="options">

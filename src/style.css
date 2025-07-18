@@ -145,6 +145,9 @@ main {
 .practice .preview #hanzi3 {
   display: none;
 }
+.practice .preview.smaller {
+  font-size: 0.7em;
+}
 .practice .preview.bigger {
   font-size: 5em;
 }
