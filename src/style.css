@@ -2,6 +2,10 @@
   font-family: 'Lexend';
   src: url(Lexend-VariableFont_wght.ttf);
 }
+@font-face {
+  font-family: 'LXGW';
+  src: url(LXGWWenKaiTC-Regular.ttf);
+}
 html,
 body {
   background: #F4F2EF;
@@ -150,6 +154,7 @@ main {
 }
 .practice .preview.bigger {
   font-size: 5em;
+  font-family: "LXGW", sans-serif;
 }
 .practice .preview.bigger #hanzi1,
 .practice .preview.bigger #hanzi2,
@@ -179,11 +184,20 @@ main {
   background: green;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 .header {
   text-align: center;
   padding-bottom: 64px;
+}
+.header.shrink {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.header.shrink img {
+  max-height: 50px;
 }
 nav {
   display: flex;

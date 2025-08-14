@@ -1,9 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { groups } from "./data";
 import { Group } from "./Group";
 import { Practice } from "./Practice";
 import { shuffle, useGlobalKeyDown } from "./tools";
 import { DataContext } from "./DataContext";
+import { Languages } from "./Languages";
 
 const logo = new URL('./assets/img.svg', import.meta.url);
 function getWordsArray(group) {
@@ -29,6 +30,7 @@ export function App() {
   const [lastGroup, setLastGroup] = useState();
   const [lastIndex, setLastIndex] = useState(0);
   const [activePractice, setActivePractice] = useState();
+  const [language, setLanguage] = useState(window.location.hash.replace('#', ''));
   
   const orders = [
     {
@@ -80,6 +82,17 @@ export function App() {
     label: 'Random'
   }
 ];
+
+  const hashChangeHandler = useCallback(() => {
+    setLanguage(window.location.hash.replace('#', ''));
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('hashchange', hashChangeHandler);
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler);
+    };
+  }, []);
 const [selectedMode, setSelectedMode] = useState(localStorage.getItem('selectedMode') || modes[1].id); // Default selected
 
 const [selectedOrder, setSelectedOrder] = useState(localStorage.getItem('selectedOrder') || orders[0].id); // Default selected
@@ -98,7 +111,7 @@ const loadGroup = useCallback((group) => {
       }
 }, [selectedPracticeType,  lastIndex, setLastGroup, setActivePractice, setLastIndex]);
 
-    return <DataContext value={{mode: selectedMode, order: selectedOrder, practiceType: selectedPracticeType}}>
+    return <DataContext value={{language, activePractice: activePractice, mode: selectedMode, order: selectedOrder, practiceType: selectedPracticeType}}>
       <div className={selectedMode}>
         
       {
@@ -111,20 +124,25 @@ const loadGroup = useCallback((group) => {
           }}>Words</div></nav> : null
           }
       <div>
-        <div className={`header${activePractice ? ' hidden' : ''}`}>
+        <div className={`header${activePractice ? ' hidden' : ''}${language ? ' shrink' : ''}`}>
           <img src={logo} alt=""/>
           <h1>Glypher</h1>
         </div>
-      <div className={`groups${activePractice ? ' lhs-sidebar' : ''}${lhsVisible ? ' visible' : ''}`}>
-        <div className="sidebar-link" onClick={() => {
-          setLHSVisible(false)
-        }}></div>
-        {groups.map(group => <Group onClick={() => {
-          loadGroup(group);
-        }} key={group.id} data={group}/>)}</div>
+        {!language ? <Languages /> :
+        (<div className={`groups${activePractice ? ' lhs-sidebar' : ''}${lhsVisible ? ' visible' : ''}`}>
+          <div className="sidebar-link" onClick={() => {
+            setLHSVisible(false)
+          }}></div>
+          {groups.map(group => <Group onClick={() => {
+            loadGroup(group);
+          }} key={group.id} data={group}/>)}
+        </div>)}
 
       </div>
-      {lastGroup ? <div className={`groups rhs-sidebar${rhsVisible ? ' visible' : ''}`}>
+      {language && !activePractice ? <div className={`groups lhs-sidebar${lhsVisible ? ' visible' : ''}`}><div className="sidebar-link" onClick={() => {
+          setLHSVisible(false)
+        }}></div></div> : null}
+      {language && activePractice && lastGroup ? <div className={`groups rhs-sidebar${rhsVisible ? ' visible' : ''}`}>
         <div className="sidebar-link" onClick={() => {
           setRHSVisible(false)
         }}></div>
@@ -158,7 +176,7 @@ const loadGroup = useCallback((group) => {
         {lastGroup.words.split('\n').map(word => <div key={word}>{word}</div>)}</div>
       : null}
       {
-          activePractice ? <Practice data={activePractice} mode={selectedMode} order={selectedOrder} reload={() => {
+          activePractice && language ? <Practice data={activePractice} mode={selectedMode} order={selectedOrder} reload={() => {
            loadGroup(lastGroup)
           }}/> : null
         }

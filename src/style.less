@@ -2,6 +2,10 @@
     font-family: 'Lexend';
     src: url(./Lexend-VariableFont_wght.ttf);
 }
+@font-face {
+    font-family: 'LXGW';
+    src: url(./LXGWWenKaiTC-Regular.ttf);
+}
 
 html,
 body {
@@ -193,6 +197,7 @@ main {
         &.bigger {
             font-size: 5em;
 
+            font-family: "LXGW", sans-serif;
             #hanzi1,
             #hanzi2,
             #hanzi3 {
@@ -232,12 +237,21 @@ main {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .header {
     text-align: center;
     padding-bottom: 64px;
+    &.shrink {
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        img {
+            max-height: 50px;
+        }
+    }
 }
 nav {
     display: flex;
