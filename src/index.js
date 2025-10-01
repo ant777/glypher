@@ -10,9 +10,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             scope: process.env.NODE_ENV.trim() === 'prod' ? '/glypher/' : '/'
         }).then(function (reg) {
             console.log("SW registration succeeded. Scope is " + reg.scope);
-const container = document.getElementById("app");
-const root = createRoot(container)
-root.render(<App />);
+            const container = document.getElementById("app");
+            const root = createRoot(container)
+            root.render(<App />);
 
 
         }).catch(function (err) {
