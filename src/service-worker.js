@@ -36,6 +36,35 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
     if (event.request.method !== 'GET') return;
     const url = new URL(event.request.url);
+    const parts = url.pathname.split('/');
+    let fileName = parts.at(-1);
+    if (fileName ==='custom.css') {
+      event.respondWith(async function () {
+        console.warn(fileName);
+        const res = await fetch(new Request('/custom.json'));
+        const output = await res.json();
+        let response = ''
+        console.warn(output);
+        if(output.collections[0]?.variables) {
+            response = output.collections[0]?.variables.map((it) => {
+                let val = Object.values(it.valuesByMode)[0];
+                if(val.r !== undefined) {
+                    console.warn(val);
+                    val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
+                }
+                return `${it.name.split('|')[0]} {
+                    ${it.name.split('|')[1]}: ${val};
+                }`
+            }).join('\n');
+        }
+        return new Response(response, {
+            headers: new Headers({
+                'Content-Type': 'text/css'
+            })
+        });
+     }());
+    }else {
+
      event.respondWith(
             caches.match(event.request, {ignoreSearch: true})
                 .then(function (response) {
@@ -51,6 +80,7 @@ self.addEventListener('fetch', function (event) {
                     }
                 )
         );
+    }
         return;
     }
 );

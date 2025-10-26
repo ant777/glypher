@@ -5,12 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./hanzi-writer.min.js"></script>
-
+    
   </head>
   <body>
     <main>
       <div id="app"></div>
       <script type="module" src="index.js"></script>
     </main>
+    <script>function loadCSS(filename) {
+    // Create a new <link> element
+    var link = document.createElement('link');
+
+    // Set the attributes for the <link> element
+    link.rel = 'stylesheet'; // Specifies that it's a stylesheet
+    link.type = 'text/css';  // Specifies the media type
+    link.href = filename;    // Sets the path to the CSS file
+
+    // Append the <link> element to the document's <head>
+    document.head.appendChild(link);
+}
+
+// Example usage:
+loadCSS('custom.css');  // Loads another CSS file named 'theme.css'document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="./custom.css" />')</script>
   </body>
 </html>

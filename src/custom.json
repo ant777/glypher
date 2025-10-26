@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "lastModified": "2025-10-24T12:14:35.029Z",
+  "collections": [
+    {
+      "id": "VariableCollectionId:452:4335",
+      "name": "Collection 1",
+      "key": "e728c366d49a80eb6fc4f24b44750cb3689cca84",
+      "hiddenFromPublishing": false,
+      "defaultModeId": "452:0",
+      "modes": [
+        {
+          "name": "Mode 1",
+          "modeId": "452:0"
+        }
+      ],
+      "remote": false,
+      "variableIds": [
+        "VariableID:452:4336",
+        "VariableID:452:4337"
+      ],
+      "variables": [
+        {
+          "id": "VariableID:452:4336",
+          "name": "h1|color",
+          "description": "",
+          "key": "4b76b325cc830d1200b7ea324dfdd1974d0fc85c",
+          "resolvedType": "COLOR",
+          "valuesByMode": {
+            "452:0": {
+              "r": 0,
+              "g": 0.78,
+              "b": 1,
+              "a": 1
+            }
+          },
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": false,
+          "codeSyntax": {},
+          "variableCollectionId": "VariableCollectionId:452:4335"
+        },
+        {
+          "id": "VariableID:452:4337",
+          "name": "h1|font-size",
+          "description": "",
+          "key": "2e4baaea9f9c23b6ffe8d57e551a9aa61d0e1e9a",
+          "resolvedType": "COLOR",
+          "valuesByMode": {
+            "452:0": {
+              "r": 1,
+              "g": 0,
+              "b": 0,
+              "a": 1
+            }
+          },
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "hiddenFromPublishing": false,
+          "codeSyntax": {},
+          "variableCollectionId": "VariableCollectionId:452:4335"
+        }
+      ]
+    }
+  ],
+  "fileName": "Glypher-variables-full.json"
+}
