@@ -41,7 +41,7 @@ self.addEventListener('fetch', function (event) {
     if (fileName ==='custom.css') {
       event.respondWith(async function () {
         console.warn(fileName);
-        const res = await fetch(new Request('/custom.json'));
+        const res = await fetch(new Request('./custom.json'));
         const output = await res.json();
         let response = ''
         console.warn(output );

@@ -2,16 +2,16 @@ var e=globalThis,t={},n={},r=e.parcelRequirebdb8;null==r&&((r=function(e){if(e i
 '/glypher/',"/glypher/glypher.f5f00a42.js",
 "/glypher/Lexend-VariableFont_wght.bc91a6a1.ttf",
 "/glypher/glypher.b4db7529.js",
+"/glypher/service-worker.77ef2268.js",
 "/glypher/sidebar.66651287.svg",
 "/glypher/home.1e18d523.svg",
 "/glypher/index.html",
 "/glypher/speaker.a462f130.svg",
 "/glypher/LXGWWenKaiTC-Regular.d5f7c6a1.ttf",
 "/glypher/glypher.e8f16c70.css",
-"/glypher/service-worker.1434ca38.js",
 "/glypher/img.0dc0e39a.svg"
-];self.addEventListener("install",function(e){e.waitUntil(caches.open(n).then(function(e){return console.log("Opened cache"),e.addAll(r).then(function(){__hasUpdate=!0,console.log("All resources have been fetched and cached.")})}).then(function(){return self.skipWaiting()}))}),self.addEventListener("activate",function(e){var t=[n];e.waitUntil(caches.keys().then(function(e){return Promise.all(e.map(function(e){if(-1===t.indexOf(e))return caches.delete(e)}))}))}),self.addEventListener("fetch",function(e){if("GET"!==e.request.method)return;let t=new URL(e.request.url),n=t.pathname.split("/").at(-1);"custom.css"===n?e.respondWith(async function(){console.warn(n);let e=await fetch(new Request("/custom.json")),t=await e.json(),r="";return console.warn(t),t.map(e=>{e.variables&&(r+=e?.variables.map(e=>{if(!e.name.includes("|"))return"/* as*/\n";let t=Object.values(e.values)[0];return void 0!==t.r&&(t=`rgba(${Math.round(255*t.r)},${Math.round(255*t.g)},${Math.round(255*t.b)},${t.a})`),`
+];self.addEventListener("install",function(e){e.waitUntil(caches.open(n).then(function(e){return console.log("Opened cache"),e.addAll(r).then(function(){__hasUpdate=!0,console.log("All resources have been fetched and cached.")})}).then(function(){return self.skipWaiting()}))}),self.addEventListener("activate",function(e){var t=[n];e.waitUntil(caches.keys().then(function(e){return Promise.all(e.map(function(e){if(-1===t.indexOf(e))return caches.delete(e)}))}))}),self.addEventListener("fetch",function(e){if("GET"!==e.request.method)return;let t=new URL(e.request.url),n=t.pathname.split("/").at(-1);"custom.css"===n?e.respondWith(async function(){console.warn(n);let e=await fetch(new Request("./custom.json")),t=await e.json(),r="";return console.warn(t),t.map(e=>{e.variables&&(r+=e?.variables.map(e=>{if(!e.name.includes("|"))return"/* as*/\n";let t=Object.values(e.values)[0];return void 0!==t.r&&(t=`rgba(${Math.round(255*t.r)},${Math.round(255*t.g)},${Math.round(255*t.b)},${t.a})`),`
  ${e.name.split("|")[0]} {
                         ${e.name.split("|")[1]}: ${t};
                     }`}).join("\n"))}),new Response(r,{headers:new Headers({"Content-Type":"text/css; charset=utf-8"})})}()):e.respondWith(caches.match(e.request,{ignoreSearch:!0}).then(function(n){return n||(-1!==t.pathname.indexOf("worker-javascript.js")||-1!==t.pathname.indexOf("worker-html.js")?fetch(new Request(e.request,{credentials:"omit",mode:"cors"})):fetch(e.request))}))})}),r("4pGFC");
-//# sourceMappingURL=service-worker.1434ca38.js.map
+//# sourceMappingURL=service-worker.77ef2268.js.map
