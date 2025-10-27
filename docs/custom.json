@@ -10552,5 +10552,30 @@
         }
       }
     ]
+  },
+  {
+    "id": "VariableCollectionId:5:962",
+    "name": "Collection",
+    "modes": [
+      {
+        "name": "Mode 1",
+        "modeId": "5:18"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VariableID:5:963",
+        "name": "h1|color",
+        "type": "COLOR",
+        "values": {
+          "5:18": {
+            "r": 1,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        }
+      }
+    ]
   }
 ]
