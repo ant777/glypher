@@ -10570,6 +10570,19 @@
         "values": {
           "5:18": {
             "r": 1,
+            "g": 1,
+            "b": 0,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:11:964",
+        "name": "*practice*proceed|background-color",
+        "type": "COLOR",
+        "values": {
+          "5:18": {
+            "r": 1,
             "g": 0,
             "b": 0,
             "a": 1
