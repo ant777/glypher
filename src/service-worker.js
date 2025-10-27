@@ -53,8 +53,8 @@ self.addEventListener('fetch', function (event) {
                     if(val.r !== undefined) {
                         val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
                     }
-                    return `\n ${it.name.split('|')[0]} {
-                        ${it.name.replace(/\*/g ,'.').split('|')[1]}: ${val} !important;
+                    return `\n ${it.name.replace(/\*/g, '.').split('|')[0]} {
+                        ${it.name.split('|')[1]}: ${val} !important;
                     }`;
                 }).join('\n');
             }
