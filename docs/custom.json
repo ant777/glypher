@@ -10578,7 +10578,7 @@
       },
       {
         "id": "VariableID:11:964",
-        "name": "*practice*proceed|background-color",
+        "name": "*practice *proceed|background-color",
         "type": "COLOR",
         "values": {
           "5:18": {
