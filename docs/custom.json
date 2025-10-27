@@ -10552,5 +10552,30 @@
         }
       }
     ]
+  },
+  {
+    "id": "VariableCollectionId:4:959",
+    "name": "Collection",
+    "modes": [
+      {
+        "name": "Mode 1",
+        "modeId": "4:16"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VariableID:4:960",
+        "name": "h1|color",
+        "type": "COLOR",
+        "values": {
+          "4:16": {
+            "r": 1,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        }
+      }
+    ]
   }
 ]
