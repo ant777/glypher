@@ -10554,21 +10554,21 @@
     ]
   },
   {
-    "id": "VariableCollectionId:5:962",
+    "id": "VariableCollectionId:4:959",
     "name": "Collection",
     "modes": [
       {
         "name": "Mode 1",
-        "modeId": "5:18"
+        "modeId": "4:16"
       }
     ],
     "variables": [
       {
-        "id": "VariableID:5:963",
+        "id": "VariableID:4:960",
         "name": "h1|color",
         "type": "COLOR",
         "values": {
-          "5:18": {
+          "4:16": {
             "r": 1,
             "g": 0,
             "b": 0,

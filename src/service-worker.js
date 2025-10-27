@@ -44,22 +44,24 @@ self.addEventListener('fetch', function (event) {
         const res = await fetch(new Request('/custom.json'));
         const output = await res.json();
         let response = ''
-        console.warn(output);
-        if(output.collections[0]?.variables) {
-            response = output.collections[0]?.variables.map((it) => {
-                let val = Object.values(it.valuesByMode)[0];
-                if(val.r !== undefined) {
-                    console.warn(val);
-                    val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
-                }
-                return `${it.name.split('|')[0]} {
-                    ${it.name.split('|')[1]}: ${val};
-                }`
-            }).join('\n');
-        }
+        console.warn(output );
+        output.map((collection) => {
+            if(collection.variables) {
+                response += collection?.variables.map((it) => {
+                    if(!it.name.includes('|')) return '/* as*/\n';
+                    let val = Object.values(it.values)[0];
+                    if(val.r !== undefined) {
+                        val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
+                    }
+                    return `\n ${it.name.split('|')[0]} {
+                        ${it.name.split('|')[1]}: ${val};
+                    }`;
+                }).join('\n');
+            }
+        })
         return new Response(response, {
             headers: new Headers({
-                'Content-Type': 'text/css'
+                'Content-Type': 'text/css; charset=utf-8'
             })
         });
      }());
