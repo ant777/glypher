@@ -64,7 +64,11 @@ self.addEventListener('fetch', function (event) {
                             if(typeof val !== 'string') {
                                 val += 'px';
                             }
-                            return `\n ${mq}${it.name.replace(/\*/g, '.').split('|')[0]} {
+                            let selector = it.name.replace(/\*/g, '.').split('|')[0];
+                            if (selector.indexOf('/')!== -1) {
+                                selector = selector.substr(selector.lastIndexOf('/')+1);
+                            }
+                            return `\n ${mq}${selector} {
                                 ${it.name.split('|')[1]}: ${val} !important;
                             }${mq? '}':''}`;
 
@@ -78,7 +82,11 @@ self.addEventListener('fetch', function (event) {
                         if(typeof val !== 'string') {
                             val += 'px';
                         }
-                        return `\n ${it.name.replace(/\*/g, '.').split('|')[0]} {
+                            let selector = it.name.replace(/\*/g, '.').split('|')[0];
+                            if (selector.indexOf('/')!== -1) {
+                                selector = selector.substr(selector.lastIndexOf('/')+1);
+                            }
+                        return `\n ${selector} {
                             ${it.name.split('|')[1]}: ${val} !important;
                         }`;
                     }

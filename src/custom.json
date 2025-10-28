@@ -10623,7 +10623,7 @@
       },
       {
         "id": "VariableID:12:965",
-        "name": "button|padding-left",
+        "name": "paddings/subgroup/button|padding-left",
         "type": "FLOAT",
         "values": {
           "5:18": 16,
@@ -10633,7 +10633,7 @@
       },
       {
         "id": "VariableID:19:8",
-        "name": "*container|padding",
+        "name": "paddings/*container|padding",
         "type": "FLOAT",
         "values": {
           "5:18": 40,
