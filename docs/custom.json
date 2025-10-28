@@ -10682,6 +10682,31 @@
         }
       },
       {
+        "id": "VariableID:23:3",
+        "name": "paddings/*hanzi:hover|background-color",
+        "type": "COLOR",
+        "values": {
+          "5:18": {
+            "r": 1,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "19:0": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "19:1": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
         "id": "VariableID:22:13",
         "name": "paddings/subgroup/fonts/button|padding-left",
         "type": "FLOAT",
