@@ -10558,15 +10558,15 @@
     "name": "Collection",
     "modes": [
       {
-        "name": "min-width:1025px",
+        "name": "max-width:9999px",
         "modeId": "5:18"
       },
       {
-        "name": "min-width:767px",
+        "name": "max-width:767px",
         "modeId": "19:0"
       },
       {
-        "name": "min-width:320px",
+        "name": "max-width:320px",
         "modeId": "19:1"
       }
     ],
