@@ -52,6 +52,9 @@ self.addEventListener('fetch', function (event) {
                     let val = Object.values(it.values)[0];
                     if(val.r !== undefined) {
                         val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
+                    } else 
+                    if(typeof val !== 'string') {
+                        val += 'px';
                     }
                     return `\n ${it.name.replace(/\*/g, '.').split('|')[0]} {
                         ${it.name.split('|')[1]}: ${val} !important;

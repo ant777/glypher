@@ -14,8 +14,8 @@ export function Languages() {
         setCustom(JSON.parse(localStorage.getItem('customLanguages')));
       }
     }, []);
-    return <div className={`groups`}>
-              {[...languages, ...custom, {title: '+ Add', code: 'custom'}].map(language => <div onClick={() => {
+    return <div className={`groups com-list-languages`}>
+              {[...languages, ...custom, {title: '+ Add', className: 'btn-add-language', code: 'custom'}].map(language => <div onClick={() => {
                 if (language.code === 'custom') {
                   const title = window.prompt('language title');
                   const code = window.prompt('language code');
@@ -25,5 +25,5 @@ export function Languages() {
                 } else {
                   location.hash = language.code;
                 }
-              }} key={language.code} data={language}>{language.title}</div>)}</div>;
+              }} key={language.code} className={language.className || 'btn-'+language.code} data={language}>{language.title}</div>)}</div>;
 }
