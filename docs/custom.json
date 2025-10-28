@@ -10632,16 +10632,6 @@
         }
       },
       {
-        "id": "VariableID:22:12",
-        "name": "paddings/subgroup/paddings/New group/subgroups",
-        "type": "FLOAT",
-        "values": {
-          "5:18": 0,
-          "19:0": 0,
-          "19:1": 0
-        }
-      },
-      {
         "id": "VariableID:19:8",
         "name": "paddings/*container|padding",
         "type": "FLOAT",
@@ -10652,8 +10642,38 @@
         }
       },
       {
+        "id": "VariableID:22:12",
+        "name": "paddings/subgroup/paddings/New group/New group/subgroups",
+        "type": "FLOAT",
+        "values": {
+          "5:18": 0,
+          "19:0": 0,
+          "19:1": 0
+        }
+      },
+      {
+        "id": "VariableID:22:60",
+        "name": "paddings/subgroup/paddings/New group/New group/New group/Number",
+        "type": "FLOAT",
+        "values": {
+          "5:18": 0,
+          "19:0": 0,
+          "19:1": 0
+        }
+      },
+      {
         "id": "VariableID:22:59",
         "name": "paddings/subgroup/paddings/New group/Number",
+        "type": "FLOAT",
+        "values": {
+          "5:18": 0,
+          "19:0": 0,
+          "19:1": 0
+        }
+      },
+      {
+        "id": "VariableID:23:2",
+        "name": "paddings/*hanzi|margin-right",
         "type": "FLOAT",
         "values": {
           "5:18": 0,
