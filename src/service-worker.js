@@ -46,20 +46,43 @@ self.addEventListener('fetch', function (event) {
         let response = ''
         console.warn(output );
         output.map((collection) => {
+            const modes = collection.modes;
             if(collection.variables) {
                 response += collection?.variables.map((it) => {
-                    if(!it.name.includes('|')) return '/* as*/\n';
-                    let val = Object.values(it.values)[0];
-                    if(val.r !== undefined) {
-                        val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
-                    } else 
-                    if(typeof val !== 'string') {
-                        val += 'px';
+                    if(!it.name.includes('|')) return '';
+                    if (modes.length > 1) {
+                        return modes.map((mode) => {
+                            const modeName = mode.name;
+                            let mq = '';
+                            if (modeName.includes('max-width') || modeName.includes('min-width')) {
+                                mq = `@media only screen and (${modeName}) {`;
+                            }
+                            let val = it.values[mode.modeId];
+                            if(val.r !== undefined) {
+                                val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
+                            } else 
+                            if(typeof val !== 'string') {
+                                val += 'px';
+                            }
+                            return `\n ${mq}${it.name.replace(/\*/g, '.').split('|')[0]} {
+                                ${it.name.split('|')[1]}: ${val} !important;
+                            }${mq? '}':''}`;
+
+                        }).join('');
+                    } else {
+
+                        let val = Object.values(it.values)[0];
+                        if(val.r !== undefined) {
+                            val = `rgba(${Math.round(val.r*255)},${Math.round(val.g*255)},${Math.round(val.b*255)},${val.a})`
+                        } else 
+                        if(typeof val !== 'string') {
+                            val += 'px';
+                        }
+                        return `\n ${it.name.replace(/\*/g, '.').split('|')[0]} {
+                            ${it.name.split('|')[1]}: ${val} !important;
+                        }`;
                     }
-                    return `\n ${it.name.replace(/\*/g, '.').split('|')[0]} {
-                        ${it.name.split('|')[1]}: ${val} !important;
-                    }`;
-                }).join('\n');
+                }).join('');
             }
         })
         return new Response(response, {
