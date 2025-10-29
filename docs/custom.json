@@ -10578,7 +10578,7 @@
         "values": {
           "5:18": {
             "r": 1,
-            "g": 0,
+            "g": 0.7333333492279053,
             "b": 0,
             "a": 1
           },
@@ -10602,9 +10602,34 @@
         "type": "COLOR",
         "values": {
           "5:18": {
+            "r": 1,
+            "g": 0.7333333492279053,
+            "b": 0,
+            "a": 1
+          },
+          "19:0": {
             "r": 0,
             "g": 0,
             "b": 1,
+            "a": 1
+          },
+          "19:1": {
+            "r": 0,
+            "g": 0,
+            "b": 1,
+            "a": 1
+          }
+        }
+      },
+      {
+        "id": "VariableID:30:2",
+        "name": "*practice *proceed|text-decoration-color",
+        "type": "COLOR",
+        "values": {
+          "5:18": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
             "a": 1
           },
           "19:0": {
@@ -10632,16 +10657,6 @@
         }
       },
       {
-        "id": "VariableID:19:8",
-        "name": "paddings/*container|padding",
-        "type": "FLOAT",
-        "values": {
-          "5:18": 40,
-          "19:0": 20,
-          "19:1": 10
-        }
-      },
-      {
         "id": "VariableID:22:12",
         "name": "paddings/subgroup/paddings/New group/New group/subgroups",
         "type": "FLOAT",
@@ -10652,11 +10667,24 @@
         }
       },
       {
-        "id": "VariableID:22:60",
-        "name": "paddings/subgroup/paddings/New group/New group/New group/Number",
+        "id": "VariableID:19:8",
+        "name": "paddings/*container|padding",
         "type": "FLOAT",
         "values": {
-          "5:18": 0,
+          "5:18": 40,
+          "19:0": 20,
+          "19:1": 10
+        }
+      },
+      {
+        "id": "VariableID:23:2",
+        "name": "paddings/*hanzi|margin-right",
+        "type": "FLOAT",
+        "values": {
+          "5:18": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:97"
+          },
           "19:0": 0,
           "19:1": 0
         }
@@ -10672,14 +10700,11 @@
         }
       },
       {
-        "id": "VariableID:23:2",
-        "name": "paddings/*hanzi|margin-right",
+        "id": "VariableID:22:60",
+        "name": "paddings/subgroup/paddings/New group/New group/New group/Number",
         "type": "FLOAT",
         "values": {
-          "5:18": {
-            "type": "VARIABLE_ALIAS",
-            "id": "VariableID:1:97"
-          },
+          "5:18": 0,
           "19:0": 0,
           "19:1": 0
         }
