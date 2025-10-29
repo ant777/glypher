@@ -10623,7 +10623,7 @@
       },
       {
         "id": "VariableID:30:2",
-        "name": "*practice *proceed|text-decoration-color",
+        "name": "*practice *proceed|color",
         "type": "COLOR",
         "values": {
           "5:18": {
@@ -10681,10 +10681,7 @@
         "name": "paddings/*hanzi|margin-right",
         "type": "FLOAT",
         "values": {
-          "5:18": {
-            "type": "VARIABLE_ALIAS",
-            "id": "VariableID:1:97"
-          },
+          "5:18": 40,
           "19:0": 0,
           "19:1": 0
         }
@@ -10715,8 +10712,10 @@
         "type": "COLOR",
         "values": {
           "5:18": {
-            "type": "VARIABLE_ALIAS",
-            "id": "VariableID:1:323"
+            "r": 0.8500000238418579,
+            "g": 0.9800000190734863,
+            "b": 0.6200000047683716,
+            "a": 1
           },
           "19:0": {
             "r": 1,
