@@ -10676,7 +10676,10 @@
         "name": "paddings/*hanzi|margin-right",
         "type": "FLOAT",
         "values": {
-          "5:18": 16,
+          "5:18": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:97"
+          },
           "19:0": 0,
           "19:1": 0
         }
@@ -10687,10 +10690,8 @@
         "type": "COLOR",
         "values": {
           "5:18": {
-            "r": 0,
-            "g": 0,
-            "b": 1,
-            "a": 1
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:323"
           },
           "19:0": {
             "r": 1,
