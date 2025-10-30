@@ -16,6 +16,6 @@
       "512": "icons/512.png"
     }
   },
-  "permissions": ["scripting", "webNavigation", "storage"],
-  "host_permissions": ["https://example.com/*"]
+  "permissions": ["scripting", "webNavigation", "storage", "tabs", "<all_urls>"],
+  "host_permissions": ["https://example.com/*", "<all_urls>"]
 }

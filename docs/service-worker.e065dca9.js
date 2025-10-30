@@ -1,11 +1,11 @@
 var e=globalThis,t={},n={},r=e.parcelRequirebdb8;null==r&&((r=function(e){if(e in t)return t[e].exports;if(e in n){var r=n[e];delete n[e];var a={id:e,exports:{}};return t[e]=a,r.call(a.exports,a,a.exports),a.exports}var s=Error("Cannot find module '"+e+"'");throw s.code="MODULE_NOT_FOUND",s}).register=function(e,t){n[e]=t},e.parcelRequirebdb8=r),(0,r.register)("4pGFC",function(e,t){let n="glypher-cache-81";var r=[
-'/glypher/',"/glypher/Lexend-VariableFont_wght.bc91a6a1.ttf",
+'/glypher/',"/glypher/glypher.ab388497.js",
+"/glypher/Lexend-VariableFont_wght.bc91a6a1.ttf",
 "/glypher/glypher.b4db7529.js",
 "/glypher/service-worker.e065dca9.js",
 "/glypher/sidebar.66651287.svg",
 "/glypher/home.1e18d523.svg",
 "/glypher/index.html",
-"/glypher/glypher.a8252f2c.js",
 "/glypher/speaker.a462f130.svg",
 "/glypher/LXGWWenKaiTC-Regular.d5f7c6a1.ttf",
 "/glypher/glypher.e8f16c70.css",

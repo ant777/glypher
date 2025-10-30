@@ -136,6 +136,7 @@ const loadGroup = useCallback((group) => {
           {groups.map(group => <Group onClick={() => {
             loadGroup(group);
           }} key={group.id} data={group}/>)}
+          <div className="footer"><button>New Collection</button><button>New Word</button></div>
         </div>)}
 
       </div>
